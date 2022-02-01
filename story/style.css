@@ -1,12 +1,11 @@
-/* CSS inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-css */
+/* CSS for Night Mode custom Google Map inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-css */
 
-/* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+/* Setting Map Height to define the size of the div element that contains Map */
 #map {
   height: 100%;
 }
 
-/* Optional: Makes the sample page fill the window. */
+/* Making the page fill the window. */
 html,
 body {
   height: 100%;
