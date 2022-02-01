@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <!-- Night Mode Map theme code and aesthetic inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-html -->
 <html>
-  <head>
+<head>
     <title>Styled Maps - Night Mode</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script src="./index.js"></script>
+
 <!-- internal CSS also inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-html -->
-      <style>
+<style>
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. */
   #map {
@@ -21,8 +22,8 @@
     margin: 0;
     padding: 0;
   }
-      </style>
-      <script>
+</style>
+<script>
 <!-- JavaScript also inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-html -->
         function initMap() {
   // Styles a map in night mode.
@@ -111,15 +112,12 @@
     ],
   });
 }
-    </script>
-  </head>
-  <body>
+</script>
+</head>
+<body>
     <div id="map"></div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly"
-      async
-    ></script>
-  </body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE&callback=initMap&v=weekly"async></script>
+</body>
 </html>
