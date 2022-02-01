@@ -1,6 +1,6 @@
 /* CSS for Night Mode custom Google Map inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-css */
-
 /* Setting Map Height to define the size of the div element that contains Map */
+
 #map {
   height: 100%;
 }
