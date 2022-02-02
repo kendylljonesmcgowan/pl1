@@ -100,5 +100,3 @@ const beachMarker = new google.maps.Marker({
     icon: image,
   });
 }
-
-}
