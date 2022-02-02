@@ -115,24 +115,6 @@ function setMarkers(map) {
     // The anchor for this image is the base of the flagpole at (0, 32).
     anchor: new google.maps.Point(0, 32),
   };
-  // Shapes define the clickable region of the icon. The type defines an HTML
-  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-  // The final coordinate closes the poly by connecting to the first coordinate.
-  const shape = {
-    coords: [1, 1, 1, 20, 18, 20, 18, 1],
-    type: "poly",
-  };
-
-  for (let i = 0; i < beaches.length; i++) {
-    const beach = beaches[i];
-
-    new google.maps.Marker({
-      position: { lat: beach[1], lng: beach[2] },
-      map,
-      icon: image,
-      shape: shape,
-      title: beach[0],
-      zIndex: beach[3],
-    });
   }
 }
+
