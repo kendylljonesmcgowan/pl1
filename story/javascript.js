@@ -87,34 +87,18 @@ function initMap() {
     ],
   });
   
-    setMarkers(map);
+// Marker Customization inspired by: https://developers.google.com/maps/documentation/javascript/markers#icons
+const image =
+    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+const beachMarker = new google.maps.Marker({
+    position: { lat: 48.438, lng: -124.0927 },
+    position: { lat: 49.954, lng: -123.0135 },
+    position: { lat: 45.566, lng: -64.984 },
+    position: { lat: 46.443, lng: -62.746 },
+    position: { lat: 44.357, lng: -78.724 },
+    map,
+    icon: image,
+  });
 }
 
-// Data for the markers consisting of a name, a LatLng and a zIndex for the
-// order in which these markers should display on top of each other.
-const beaches = [
-  ["Mystic Beach Trailhead", 48.438, -124.0927, 1],
-  ["Panorama Ridge Trailhead", 49.954, -123.0135, 2],
-  ["Matthew's Head Trailhead", 45.566, -64.984, 3],
-  ["St. Peter's Harbour Lighthouse", 46.443, -62.746, 4],
-  ["Ol' Reliable", 44.357, -78.724, 5],
-];
-
-function setMarkers(map) {
-  // Adds markers to the map.
-  // Marker sizes are expressed as a Size of X,Y where the origin of the image
-  // (0,0) is located in the top left of the image.
-  // Origins, anchor positions and coordinates of the marker increase in the X
-  // direction to the right and in the Y direction down.
-  const image = {
-    url: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    // This marker is 20 pixels wide by 32 pixels high.
-    size: new google.maps.Size(20, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32),
-  };
-  }
 }
-
