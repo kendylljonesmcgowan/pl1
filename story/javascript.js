@@ -87,16 +87,29 @@ function initMap() {
     ],
   });
   
-// Marker Customization inspired by: https://developers.google.com/maps/documentation/javascript/markers#icons
-const image =
-    "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
-const beachMarker = new google.maps.Marker({
-    position: { lat: 48.438, lng: -124.0927 },
-    position: { lat: 49.954, lng: -123.0135 },
-    position: { lat: 45.566, lng: -64.984 },
-    position: { lat: 46.443, lng: -62.746 },
-    position: { lat: 44.357, lng: -78.724 },
-    map,
-    icon: image,
+// Create an array of alphabetical characters used to label the markers.
+  const labels = "ABCDE";
+  // Add some markers to the map.
+  // Note: The code uses the JavaScript Array.prototype.map() method to
+  // create an array of markers based on a given "locations" array.
+  // The map() method here has nothing to do with the Google Maps API.
+  const markers = locations.map((location, i) => {
+    return new google.maps.Marker({
+      position: location,
+      label: labels[i % labels.length],
+    });
+  });
+  // Add a marker clusterer to manage the markers.
+  new MarkerClusterer(map, markers, {
+    imagePath:
+      "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
   });
 }
+const locations = [
+{ lat: 48.438, lng: -124.0927},
+{ lat: 49.954, lng: -123.0135},
+{ lat: 45.566, lng: -64.984},
+{ lat: 46.443, lng: -62.746},
+{ lat: 44.357, lng: -78.724},
+
+];
