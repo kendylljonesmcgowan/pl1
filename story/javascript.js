@@ -3,7 +3,7 @@
 function initMap() {
   // Styles a map in night mode.
   const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 56.313, lng: -97.572 },
+    center: { lat: 60.970, lng: -89.578 },
     zoom: 4,
     styles: [
       { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
@@ -87,7 +87,7 @@ function initMap() {
     ],
   });
  
-// JavaScript for clustered markers inspired by:
+// JavaScript for clustered markers inspired by: https://developers.google.com/maps/documentation/javascript/marker-clustering#maps_marker_clustering-javascript
   
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
