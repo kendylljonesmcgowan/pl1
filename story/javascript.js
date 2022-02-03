@@ -1,7 +1,15 @@
+// Kendyll Jones-McGowan, s60
+// Shawn Morgan - GEOM 99 - Web GIS Development
+// story deliverable for Practical Lab 1
+// please enjoy a map of some nice walks
+
 // JavaScript for Night Mode custom Google Map inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-javascript
+// JavaScript for clustered markers inspired by: https://developers.google.com/maps/documentation/javascript/marker-clustering#maps_marker_clustering-javascript
+
+import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
 function initMap() {
-  // Styles a map in night mode.
+// Styles the map in night-mode
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 60.970, lng: -89.578 },
     zoom: 4,
@@ -85,28 +93,23 @@ function initMap() {
         stylers: [{ color: "#17263c" }],
       },
     ],
-  });
- 
-// JavaScript for clustered markers inspired by: https://developers.google.com/maps/documentation/javascript/marker-clustering#maps_marker_clustering-javascript
-  
-import { MarkerClusterer } from "@googlemaps/markerclusterer";
-
+// Creates a blank infowindow   
   const infoWindow = new google.maps.InfoWindow({
     content: "",
     disableAutoPan: true,
   });
-// Create an array of alphabetical characters used to label the markers.
+// Creates an array of alphabetical characters to label markers
   const labels = "ABCDE";
-// Add some markers to the map.
+// Adds markers to the map
   const markers = locations.map((position, i) => {
     const label = labels[i % labels.length];
     const marker = new google.maps.Marker({
       position,
       label,
-    });
-
-  // markers can only be keyboard focusable when they have click listeners
-  // open info window when marker is clicked
+  });
+ 
+// markers can only be keyboard focusable when they have click listeners
+// opens info window when marker is clicked
     marker.addListener("click", () => {
       infoWindow.setContent(label);
       infoWindow.open(map, marker);
@@ -114,7 +117,7 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
     return marker;
   });
 
-  // Add a marker clusterer to manage the markers.
+// Adds a marker clusterer to manage the markers
   new MarkerClusterer({ markers, map });
 }
 
