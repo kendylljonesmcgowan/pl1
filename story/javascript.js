@@ -6,7 +6,7 @@
 // JavaScript for Night Mode custom Google Map inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-javascript
 // JavaScript for clustered markers inspired by: https://developers.google.com/maps/documentation/javascript/marker-clustering#maps_marker_clustering-javascript
 
-let marker;
+
 
 function initMap() {
 // Styles the map in night-mode
@@ -94,11 +94,12 @@ function initMap() {
       },
     ],
     
-   marker = new google.maps.Marker({
+    let marker;
+    marker = new google.maps.Marker({
     map,
     draggable: true,
     animation: google.maps.Animation.DROP,
-    position: { lat: 48.438, lng: -124.0927 },
+    position: { lat: 59.327, lng: 18.067 },
   });
   marker.addListener("click", toggleBounce);
 }
