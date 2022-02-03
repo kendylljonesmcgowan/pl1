@@ -93,63 +93,36 @@ function initMap() {
     ],
   });
  
-// sets content of "Ol' Reliable walk infowindow, generates infowindow, generates and tethers infowindow to marker
- const contentString =
-    '<div id="content">' +
-    '<div id="siteNotice">' +
-    "</div>" +
-    '<h1 id="firstHeading" class="firstHeading">Ol Reliable</h1>' +
-    '<div id="bodyContent">' +
-    "<p>This is the trail I walk almost every day. Walking is a very important " +
-    "part of my life, especially since COVID started. So, I thought I would " +
-    "make a map dedicated to my top 4 favourite walks in Canada (so far...). " +
-    "I hope you enjoy, and I hope you get to go on some of these walks one day too! " +
-    "Trail names from left to right: Mystic Beach Trailhead, Panorama Ridge Trailhead, Matthew's Head Trailhead, and St. Peter's Harbour Lighthouse</p>" +
-    "</div>" +
-    "</div>";
-  const infowindow = new google.maps.InfoWindow({
-    content: contentString,
-  });
-  const marker = new google.maps.Marker({
-    position: { lat: 44.357, lng: -78.724 },
-    map,
-    title: "Ol' Reliable",
-  });
+// Set LatLng and title text for the markers. The first marker (Boynton Pass)
+  // receives the initial focus when tab is pressed. Use arrow keys to
+  // move between markers; press tab again to cycle through the map controls.
+  const tourStops = [
+    [{ lat: 48.438, lng: -124.0927 }, "Mystic Beach Trailhead"],
+    [{ lat: 49.954, lng: -123.0135 }, "Panorama Ridge Trailhead"],
+    [{ lat: 44.357, lng: -78.724 }, "Ol' Reliable"],
+    [{ lat: 45.566, lng: -64.984 }, "Matthew's Head Trailhead"],
+    [{ lat: 46.443, lng: -62.746 }, "St. Peter's Harbour Lighthouse"],
+    
+  ];
+  // Create an info window to share between markers.
+  const infoWindow = new google.maps.InfoWindow();
 
-  marker.addListener("click", () => {
-    infowindow.open({
-      anchor: marker,
+  // Create the markers.
+  tourStops.forEach(([position, title], i) => {
+    const marker = new google.maps.Marker({
+      position,
       map,
-      shouldFocus: false,
+      title: `${i + 1}. ${title}`,
+      label: `${i + 1}`,
+      optimized: false,
     });
-  }); 
- 
-// makes Mystic Beach marker
-  new google.maps.Marker({
-    position: { lat: 48.438, lng: -124.0927},
-    map,
-    title: "Mystic Beach Trailhead",
-  });
 
-// makes Panorama Ridge marker
-    new google.maps.Marker({
-    position: { lat: 49.954, lng: -123.0135},
-    map,
-    title: "Panorama Ridge Trailhead",
-  });
-
-// makes Matthew's Trailhead marker
-    new google.maps.Marker({
-    position: { lat: 45.566, lng: -64.984},
-    map,
-    title: "Matthew's Head Trailhead",
-  });
-  
-  // makes St. Peter's Harbour marker
-    new google.maps.Marker({
-    position: { lat: 46.443, lng: -62.746},
-    map,
-    title: "St. Peter's Harbour Lighthouse",
+    // Add a click listener for each marker, and set up the info window.
+    marker.addListener("click", () => {
+      infoWindow.close();
+      infoWindow.setContent(marker.getTitle());
+      infoWindow.open(marker.getMap(), marker);
+    });
   });
 
 }
