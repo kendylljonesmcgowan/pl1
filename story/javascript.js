@@ -118,7 +118,7 @@ function initMap() {
 
   marker.addListener("click", () => {
     infowindow.open({
-      anchor: null,
+      anchor: marker,
       map,
       shouldFocus: false,
     });
