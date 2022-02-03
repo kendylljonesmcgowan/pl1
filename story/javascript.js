@@ -99,7 +99,7 @@ function initMap() {
     map,
     draggable: true,
     animation: google.maps.Animation.DROP,
-    position: { lat: 59.327, lng: 18.067 },
+    position: { lat: 48.438, lng: -124.0927 },
   });
   marker.addListener("click", toggleBounce);
 }
@@ -110,7 +110,6 @@ function toggleBounce() {
   } else {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
-}
 }
 
 
