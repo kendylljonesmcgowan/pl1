@@ -97,7 +97,6 @@ function initMap() {
   const infoWindow = new google.maps.InfoWindow({
     content: "",
     disableAutoPan: true,
-  });
 // Creates an array of alphabetical characters to label markers
   const labels = "ABCDE";
 // Adds markers to the map
@@ -106,6 +105,7 @@ function initMap() {
     const marker = new google.maps.Marker({
       position,
       label,
+    });
   });
  
 // markers can only be keyboard focusable when they have click listeners
