@@ -91,35 +91,25 @@ function initMap() {
         stylers: [{ color: "#17263c" }],
       },
     ],
-import { MarkerClusterer } from "@googlemaps/markerclusterer";
-// Creates a blank infowindow
-    const infoWindow = new google.maps.InfoWindow({
-    content: "",
-    disableAutoPan: true,
-  });
-// Creates an array of alphabetical characters used to label the markers
-  const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// Adds markers to the map
-  const markers = locations.map((position, i) => {
-    const label = labels[i % labels.length];
-    const marker = new google.maps.Marker({
-      position,
-      label,
+    
+ // Create an array of alphabetical characters used to label the markers.
+  const labels = "ABCDE";
+  // Add some markers to the map.
+  // Note: The code uses the JavaScript Array.prototype.map() method to
+  // create an array of markers based on a given "locations" array.
+  // The map() method here has nothing to do with the Google Maps API.
+  const markers = locations.map((location, i) => {
+    return new google.maps.Marker({
+      position: location,
+      label: labels[i % labels.length],
     });
-
-// markers can only be keyboard focusable when they have click listeners
-// opens info window when marker is clicked
-    marker.addListener("click", () => {
-      infoWindow.setContent(label);
-      infoWindow.open(map, marker);
-    });
-    return marker;
   });
-
-// Adds a marker clusterer to manage the markers
-  new MarkerClusterer({ markers, map });
+  // Add a marker clusterer to manage the markers.
+  new MarkerClusterer(map, markers, {
+    imagePath:
+      "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+  });
 }
-
 const locations = [
 { lat: 48.438, lng: -124.0927},
 { lat: 49.954, lng: -123.0135},
