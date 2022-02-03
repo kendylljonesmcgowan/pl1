@@ -123,6 +123,12 @@ function initMap() {
       shouldFocus: false,
     });
   }); 
+  
+  new google.maps.Marker({
+    position: { lat: 48.438, lng: -124.0927},
+    map,
+    title: "Mystic Beach Trailhead",
+  });
 
 }
 
