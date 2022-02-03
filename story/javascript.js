@@ -110,6 +110,22 @@ function toggleBounce() {
   } else {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
+  
+   marker = new google.maps.Marker({
+    map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: { lat: 49.954, lng: -123.0135 },
+  });
+  marker.addListener("click", toggleBounce);
+}
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
 }
 
 
