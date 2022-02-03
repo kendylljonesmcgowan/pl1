@@ -93,12 +93,14 @@ function initMap() {
         stylers: [{ color: "#17263c" }],
       },
     ],
-// Creates a blank infowindow   
-  const infoWindow = new google.maps.InfoWindow({
+
+// Creates a blank infowindow
+    const infoWindow = new google.maps.InfoWindow({
     content: "",
     disableAutoPan: true,
-// Creates an array of alphabetical characters to label markers
-  const labels = "ABCDE";
+  });
+// Creates an array of alphabetical characters used to label the markers
+  const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 // Adds markers to the map
   const markers = locations.map((position, i) => {
     const label = labels[i % labels.length];
@@ -106,8 +108,7 @@ function initMap() {
       position,
       label,
     });
-  });
- 
+
 // markers can only be keyboard focusable when they have click listeners
 // opens info window when marker is clicked
     marker.addListener("click", () => {
