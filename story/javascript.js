@@ -6,8 +6,6 @@
 // JavaScript for Night Mode custom Google Map inspired by: https://developers.google.com/maps/documentation/javascript/examples/style-array#maps_style_array-javascript
 // JavaScript for clustered markers inspired by: https://developers.google.com/maps/documentation/javascript/marker-clustering#maps_marker_clustering-javascript
 
-import { MarkerClusterer } from "@googlemaps/markerclusterer";
-
 function initMap() {
 // Styles the map in night-mode
   const map = new google.maps.Map(document.getElementById("map"), {
@@ -93,7 +91,7 @@ function initMap() {
         stylers: [{ color: "#17263c" }],
       },
     ],
-
+import { MarkerClusterer } from "@googlemaps/markerclusterer";
 // Creates a blank infowindow
     const infoWindow = new google.maps.InfoWindow({
     content: "",
