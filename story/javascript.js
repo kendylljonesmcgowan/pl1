@@ -11,6 +11,7 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 60.970, lng: -89.578 },
     zoom: 4,
+    mapTypeId: 'terrain'
  styles: [
       { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
       { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
@@ -93,9 +94,7 @@ function initMap() {
     ],
   });
  
-// Set LatLng and title text for the markers. The first marker (Boynton Pass)
-  // receives the initial focus when tab is pressed. Use arrow keys to
-  // move between markers; press tab again to cycle through the map controls.
+// JavaScript for marker accessibility inspired by: https://developers.google.com/maps/documentation/javascript/examples/marker-accessibility
   const tourStops = [
     [{ lat: 48.438, lng: -124.0927 }, "Mystic Beach Trailhead"],
     [{ lat: 49.954, lng: -123.0135 }, "Panorama Ridge Trailhead"],
@@ -104,10 +103,10 @@ function initMap() {
     [{ lat: 46.443, lng: -62.746 }, "St. Peter's Harbour Lighthouse"],
     
   ];
-  // Create an info window to share between markers.
+// creates an info window to share between markers
   const infoWindow = new google.maps.InfoWindow();
 
-  // Create the markers.
+// creates the markers
   tourStops.forEach(([position, title], i) => {
     const marker = new google.maps.Marker({
       position,
@@ -117,7 +116,7 @@ function initMap() {
       optimized: false,
     });
 
-    // Add a click listener for each marker, and set up the info window.
+// adds a click listener for each marker, and set up the info window
     marker.addListener("click", () => {
       infoWindow.close();
       infoWindow.setContent(marker.getTitle());
