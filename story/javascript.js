@@ -101,7 +101,7 @@ function initMap() {
     '<h1 id="firstHeading" class="firstHeading">Ol Reliable</h1>' +
     '<div id="bodyContent">' +
     "<p>This is the trail I walk almost every day. Walking is a very important " +
-    "part of my everyday life, especially since COVID started. So, I thought I would " +
+    "part of my life, especially since COVID started. So, I thought I would " +
     "make a map dedicated to my top 4 favourite walks in Canada (so far...). " +
     "I hope you enjoy, and I hope you get to go on some of these walks one day too! " +
     "Trail names from left to right: Mystic Beach Trailhead, Panorama Ridge Trailhead, Matthew's Head Trailhead, and St. Peter's Harbour Lighthouse</p>" +
